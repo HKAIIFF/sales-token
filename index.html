@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIF TOKEN - Revolutionary AI Film Ecosystem</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --primary: #7928CA;
+            --secondary: #FF0080;
+            --accent: #00FFFF;
+            --gold: #FFD700;
+            --dark: #0a0a0a;
+            --dark-lighter: #1a1a1a;
+            --light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .bg-gradient-gold {
+            background: linear-gradient(135deg, var(--gold), #FFA500);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient-gold {
+            background: linear-gradient(135deg, var(--gold), #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hover-scale {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at 20% 80%, rgba(120, 40, 202, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.2) 0%, transparent 50%);
+        }
+        
+        .countdown-timer {
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            animation: gradient-shift 4s ease infinite;
+            background-size: 400% 400%;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .blur-bg {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .section-padding {
+            padding: 6rem 0;
+        }
+        
+        .explosive-text {
+            font-size: clamp(2rem, 8vw, 6rem);
+            font-weight: 900;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+        
+        .growth-number {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease infinite;
+            background-size: 400% 400%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector (Fixed Position) -->
+    <div class="fixed top-4 right-4 z-50">
+        <div class="glass rounded-full px-4 py-2">
+            <button onclick="toggleLanguage()" class="text-white hover:text-accent transition" id="langToggle">
+                EN | 中文
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky-nav glass-dark">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="text-3xl font-bold orbitron text-gradient">AIF TOKEN</div>
+                    <div class="hidden md:block text-sm text-accent animate-pulse">Private Sale Round 1 LIVE</div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="nav-item" data-en="Home" data-zh="首页">Home</a>
+                    <a href="#ecosystem" class="nav-item" data-en="Ecosystem" data-zh="生态系统">Ecosystem</a>
+                    <a href="#tokenomics" class="nav-item" data-en="Tokenomics" data-zh="代币经济">Tokenomics</a>
+                    <a href="#market" class="nav-item" data-en="Market" data-zh="市场机会">Market</a>
+                    <a href="#roadmap" class="nav-item" data-en="Roadmap" data-zh="路线图">Roadmap</a>
+                    <a href="#technology" class="nav-item" data-en="Technology" data-zh="技术">Technology</a>
+                    <a href="#contact" class="nav-item" data-en="Contact" data-zh="联系我们">Contact</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-gradient-gold px-6 py-2 rounded-full text-black font-bold hover:opacity-90 transition animate-pulse">
+                        <span data-en="INVEST NOW" data-zh="立即投资">INVEST NOW</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-white" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-dark z-40 lg:hidden">
+            <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+                <a href="#home" onclick="toggleMobileMenu()" data-en="Home" data-zh="首页">Home</a>
+                <a href="#ecosystem" onclick="toggleMobileMenu()" data-en="Ecosystem" data-zh="生态系统">Ecosystem</a>
+                <a href="#tokenomics" onclick="toggleMobileMenu()" data-en="Tokenomics" data-zh="代币经济">Tokenomics</a>
+                <a href="#market" onclick="toggleMobileMenu()" data-en="Market" data-zh="市场机会">Market</a>
+                <a href="#roadmap" onclick="toggleMobileMenu()" data-en="Roadmap" data-zh="路线图">Roadmap</a>
+                <a href="#technology" onclick="toggleMobileMenu()" data-en="Technology" data-zh="技术">Technology</a>
+                <a href="#contact" onclick="toggleMobileMenu()" data-en="Contact" data-zh="联系我们">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Background Animation -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-20 w-32 h-32 bg-primary rounded-full animate-float"></div>
+            <div class="absolute top-40 right-32 w-24 h-24 bg-secondary rounded-full animate-float" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-32 left-1/3 w-20 h-20 bg-accent rounded-full animate-float" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <!-- Countdown Timer -->
+            <div class="countdown-timer p-4 rounded-2xl mb-8 max-w-4xl mx-auto">
+                <div class="text-black font-bold text-lg mb-2" data-en="🔥 PRIVATE SALE ROUND 1 - LIMITED TIME 🔥" data-zh="🔥 首轮私募 - 限时机会 🔥">🔥 PRIVATE SALE ROUND 1 - LIMITED TIME 🔥</div>
+                <div class="text-black text-2xl font-bold mb-2" data-en="Ends: July 1, 2025 | Target: $3M USD" data-zh="截止：2025年7月1日 | 目标：300万美元">Ends: July 1, 2025 | Target: $3M USD</div>
+                <div id="countdown" class="text-black text-xl font-bold"></div>
+            </div>
+            
+            <!-- Main Headline -->
+            <h1 class="explosive-text orbitron mb-6">
+                <span data-en="THE WORLD'S FIRST" data-zh="全球首个">THE WORLD'S FIRST</span><br>
+                <span class="text-gradient" data-en="AI-NATIVE FILM" data-zh="AI原生电影">AI-NATIVE FILM</span><br>
+                <span data-en="ECOSYSTEM" data-zh="生态系统">ECOSYSTEM</span>
+            </h1>
+            
+            <!-- Growth Promise -->
+            <div class="mb-8">
+                <div class="growth-number">4000%</div>
+                <div class="text-2xl md:text-4xl font-bold text-gold mb-4" data-en="PROJECTED GROWTH BY 2030" data-zh="预计2030年增长">PROJECTED GROWTH BY 2030</div>
+                <div class="text-xl text-gray-300 max-w-3xl mx-auto" data-en="Join the $370B+ AI content revolution. Early investors in similar projects saw 10-50x returns." data-zh="加入3700亿美元+AI内容革命。类似项目的早期投资者获得了10-50倍回报。">
+                    Join the $370B+ AI content revolution. Early investors in similar projects saw 10-50x returns.
+                </div>
+            </div>
+            
+            <!-- Key Value Props -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
+                <div class="glass p-6 rounded-xl hover-scale">
+                    <div class="text-4xl mb-4">🎬</div>
+                    <div class="text-xl font-bold mb-2" data-en="AI Film Creation" data-zh="AI电影创作">AI Film Creation</div>
+                    <div class="text-gray-300" data-en="90% cost reduction" data-zh="成本降低90%">90% cost reduction</div>
+                </div>
+                <div class="glass p-6 rounded-xl hover-scale">
+                    <div class="text-4xl mb-4">💎</div>
+                    <div class="text-xl font-bold mb-2" data-en="Tokenized Investments" data-zh="代币化投资">Tokenized Investments</div>
+                    <div class="text-gray-300" data-en="Fractional film ownership" data-zh="电影分割所有权">Fractional film ownership</div>
+                </div>
+                <div class="glass p-6 rounded-xl hover-scale">
+                    <div class="text-4xl mb-4">🌏</div>
+                    <div class="text-xl font-bold mb-2" data-en="Global Distribution" data-zh="全球分发">Global Distribution</div>
+                    <div class="text-gray-300" data-en="Direct market access" data-zh="直接市场准入">Direct market access</div>
+                </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#contact" class="bg-gradient-gold px-12 py-4 rounded-full text-black text-xl font-bold hover:opacity-90 transition animate-pulse">
+                    <span data-en="🚀 SECURE YOUR ALLOCATION" data-zh="🚀 获取您的配额">🚀 SECURE YOUR ALLOCATION</span>
+                </a>
+                <a href="#ecosystem" class="glass px-12 py-4 rounded-full text-white text-xl font-bold hover:bg-white hover:bg-opacity-10 transition">
+                    <span data-en="📖 READ WHITEPAPER" data-zh="📖 阅读白皮书">📖 READ WHITEPAPER</span>
+                </a>
+            </div>
+            
+            <!-- Urgency Text -->
+            <div class="mt-8 text-red-400 font-bold text-lg animate-pulse" data-en="⚡ Only 48 hours left to join at private sale price! ⚡" data-zh="⚡ 仅剩48小时以私募价格加入! ⚡">
+                ⚡ Only 48 hours left to join at private sale price! ⚡
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity Section -->
+    <section id="market" class="section-padding bg-dark-lighter">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold orbitron mb-6">
+                    <span data-en="MASSIVE MARKET" data-zh="巨大市场">MASSIVE MARKET</span><br>
+                    <span class="text-gradient" data-en="OPPORTUNITY" data-zh="机会">OPPORTUNITY</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto" data-en="The convergence of AI and entertainment represents one of the largest technological shifts in creative industries" data-zh="AI与娱乐的融合代表了创意产业中最大的技术转变之一">
+                    The convergence of AI and entertainment represents one of the largest technological shifts in creative industries
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="glass p-8 rounded-xl text-center hover-scale">
+                    <div class="text-4xl font-bold text-gold mb-2">$2.3T</div>
+                    <div class="text-lg font-semibold mb-2" data-en="Global Entertainment" data-zh="全球娱乐市场">Global Entertainment</div>
+                    <div class="text-gray-400" data-en="Market Size 2024" data-zh="2024年市场规模">Market Size 2024</div>
+                </div>
+                <div class="glass p-8 rounded-xl text-center hover-scale">
+                    <div class="text-4xl font-bold text-accent mb-2">$370B+</div>
+                    <div class="text-lg font-semibold mb-2" data-en="AI Content Market" data-zh="AI内容市场">AI Content Market</div>
+                    <div class="text-gray-400" data-en="Projected by 2030" data-zh="2030年预测">Projected by 2030</div>
+                </div>
+                <div class="glass p-8 rounded-xl text-center hover-scale">
+                    <div class="text-4xl font-bold text-secondary mb-2">54.2%</div>
+                    <div class="text-lg font-semibold mb-2" data-en="Annual Growth" data-zh="年增长率">Annual Growth</div>
+                    <div class="text-gray-400" data-en="CAGR 2023-2030" data-zh="2023-2030复合年增长率">CAGR 2023-2030</div>
+                </div>
+                <div class="glass p-8 rounded-xl text-center hover-scale">
+                    <div class="text-4xl font-bold text-primary mb-2">35%</div>
+                    <div class="text-lg font-semibold mb-2" data-en="Asia-Pacific Share" data-zh="亚太份额">Asia-Pacific Share</div>
+                    <div class="text-gray-400" data-en="Market Leadership" data-zh="市场领导地位">Market Leadership</div>
+                </div>
+            </div>
+            
+            <!-- Growth Chart Visualization -->
+            <div class="glass p-8 rounded-xl mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8" data-en="AI Content Market Growth Trajectory" data-zh="AI内容市场增长轨迹">AI Content Market Growth Trajectory</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-red-400">2023</div>
+                        <div class="text-xl font-semibold">$30B</div>
+                        <div class="h-20 bg-red-400 rounded-t-lg mt-2" style="height: 20px;"></div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-orange-400">2025</div>
+                        <div class="text-xl font-semibold">$75B</div>
+                        <div class="h-20 bg-orange-400 rounded-t-lg mt-2" style="height: 40px;"></div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-yellow-400">2027</div>
+                        <div class="text-xl font-semibold">$150B</div>
+                        <div class="h-20 bg-yellow-400 rounded-t-lg mt-2" style="height: 60px;"></div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-green-400">2029</div>
+                        <div class="text-xl font-semibold">$250B</div>
+                        <div class="h-20 bg-green-400 rounded-t-lg mt-2" style="height: 80px;"></div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-accent">2030</div>
+                        <div class="text-xl font-semibold">$370B+</div>
+                        <div class="h-20 bg-accent rounded-t-lg mt-2" style="height: 100px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section id="ecosystem" class="section-padding bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold orbitron mb-6">
+                    <span data-en="COMPREHENSIVE" data-zh="综合性">COMPREHENSIVE</span><br>
+                    <span class="text-gradient" data-en="ECOSYSTEM" data-zh="生态系统">ECOSYSTEM</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto" data-en="The world's first '4+1+1' AI-native film ecosystem covering the entire value chain" data-zh="全球首个'4+1+1'AI原生电影生态系统，覆盖整个价值链">
+                    The world's first "4+1+1" AI-native film ecosystem covering the entire value chain
+                </p>
+            </div>
+            
+            <!-- Ecosystem Diagram -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Exhibition & Competition -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-gold">🏆</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Exhibition & Competition" data-zh="展映竞赛">Exhibition & Competition</h3>
+                    <p class="text-gray-300 mb-4" data-en="Global showcase for AI-native content with $1M+ prize pools" data-zh="AI原生内容的全球展示平台，奖金池超过100万美元">Global showcase for AI-native content with $1M+ prize pools</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• Unicorn Gold Award: $1,000,000" data-zh="• 独角兽金奖：100万美元">• Unicorn Gold Award: $1,000,000</li>
+                        <li data-en="• Best AI Director: $200,000" data-zh="• 最佳AI导演：20万美元">• Best AI Director: $200,000</li>
+                        <li data-en="• Global distribution deals" data-zh="• 全球分发协议">• Global distribution deals</li>
+                    </ul>
+                </div>
+                
+                <!-- AI Film Academy -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-accent">🎓</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="AI Film Academy" data-zh="AI电影学院">AI Film Academy</h3>
+                    <p class="text-gray-300 mb-4" data-en="Professional education and certification programs" data-zh="专业教育和认证项目">Professional education and certification programs</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• 120,000+ students by 2030" data-zh="• 2030年12万+学生">• 120,000+ students by 2030</li>
+                        <li data-en="• 100+ global centers" data-zh="• 100+全球中心">• 100+ global centers</li>
+                        <li data-en="• Industry certifications" data-zh="• 行业认证">• Industry certifications</li>
+                    </ul>
+                </div>
+                
+                <!-- AI Film Market -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-primary">💰</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="AI Film Market" data-zh="AI电影市场">AI Film Market</h3>
+                    <p class="text-gray-300 mb-4" data-en="Decentralized financing and trading platform" data-zh="去中心化融资和交易平台">Decentralized financing and trading platform</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• Tokenized crowdfunding" data-zh="• 代币化众筹">• Tokenized crowdfunding</li>
+                        <li data-en="• Multi-round financing" data-zh="• 多轮融资">• Multi-round financing</li>
+                        <li data-en="• Secondary trading" data-zh="• 二级交易">• Secondary trading</li>
+                    </ul>
+                </div>
+                
+                <!-- Submission Center -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-secondary">📤</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Submission Center" data-zh="征片中心">Submission Center</h3>
+                    <p class="text-gray-300 mb-4" data-en="Global content distribution hub" data-zh="全球内容分发中心">Global content distribution hub</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• AI content analysis" data-zh="• AI内容分析">• AI content analysis</li>
+                        <li data-en="• Quality scoring" data-zh="• 质量评分">• Quality scoring</li>
+                        <li data-en="• Global distribution" data-zh="• 全球分发">• Global distribution</li>
+                    </ul>
+                </div>
+                
+                <!-- 404.world Platform -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-green-400">🌐</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="404.world Platform" data-zh="404.world平台">404.world Platform</h3>
+                    <p class="text-gray-300 mb-4" data-en="Interactive streaming and experiences" data-zh="互动流媒体和体验">Interactive streaming and experiences</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• Personalized content" data-zh="• 个性化内容">• Personalized content</li>
+                        <li data-en="• Parallel world creation" data-zh="• 平行世界创建">• Parallel world creation</li>
+                        <li data-en="• Interactive features" data-zh="• 互动功能">• Interactive features</li>
+                    </ul>
+                </div>
+                
+                <!-- AIF Exchange -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-yellow-400">⚡</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="AIF Exchange" data-zh="AIF交易所">AIF Exchange</h3>
+                    <p class="text-gray-300 mb-4" data-en="Token economy and value exchange" data-zh="代币经济和价值交换">Token economy and value exchange</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• Multi-token trading" data-zh="• 多代币交易">• Multi-token trading</li>
+                        <li data-en="• Liquidity mining" data-zh="• 流动性挖矿">• Liquidity mining</li>
+                        <li data-en="• Advanced trading" data-zh="• 高级交易">• Advanced trading</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Value Flow Diagram -->
+            <div class="glass p-8 rounded-xl">
+                <h3 class="text-3xl font-bold text-center mb-8" data-en="Ecosystem Value Flow" data-zh="生态系统价值流">Ecosystem Value Flow</h3>
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-gradient rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-lightbulb text-2xl text-white"></i>
+                        </div>
+                        <div class="text-lg font-bold" data-en="Create" data-zh="创作">Create</div>
+                        <div class="text-sm text-gray-400" data-en="AI-powered content" data-zh="AI驱动内容">AI-powered content</div>
+                    </div>
+                    <div class="text-accent text-2xl">→</div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-gradient rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-coins text-2xl text-white"></i>
+                        </div>
+                        <div class="text-lg font-bold" data-en="Fund" data-zh="融资">Fund</div>
+                        <div class="text-sm text-gray-400" data-en="Tokenized investment" data-zh="代币化投资">Tokenized investment</div>
+                    </div>
+                    <div class="text-accent text-2xl">→</div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-gradient rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-film text-2xl text-white"></i>
+                        </div>
+                        <div class="text-lg font-bold" data-en="Produce" data-zh="制作">Produce</div>
+                        <div class="text-sm text-gray-400" data-en="Transparent tracking" data-zh="透明跟踪">Transparent tracking</div>
+                    </div>
+                    <div class="text-accent text-2xl">→</div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-gradient rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-globe text-2xl text-white"></i>
+                        </div>
+                        <div class="text-lg font-bold" data-en="Distribute" data-zh="分发">Distribute</div>
+                        <div class="text-sm text-gray-400" data-en="Global reach" data-zh="全球覆盖">Global reach</div>
+                    </div>
+                    <div class="text-accent text-2xl">→</div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-gradient rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-chart-line text-2xl text-white"></i>
+                        </div>
+                        <div class="text-lg font-bold" data-en="Profit" data-zh="盈利">Profit</div>
+                        <div class="text-sm text-gray-400" data-en="Revenue sharing" data-zh="收益分享">Revenue sharing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="section-padding bg-dark-lighter">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold orbitron mb-6">
+                    <span data-en="REVOLUTIONARY" data-zh="革命性">REVOLUTIONARY</span><br>
+                    <span class="text-gradient" data-en="TOKENOMICS" data-zh="代币经济">TOKENOMICS</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto" data-en="Deflationary mechanism with multiple utility drivers and revenue sharing" data-zh="具有多重效用驱动因素和收益分享的通缩机制">
+                    Deflationary mechanism with multiple utility drivers and revenue sharing
+                </p>
+            </div>
+            
+            <!-- Token Overview -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div class="glass p-8 rounded-xl">
+                    <h3 class="text-3xl font-bold mb-6" data-en="Token Fundamentals" data-zh="代币基础">Token Fundamentals</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-3 border-b border-gray-700">
+                            <span class="text-gray-300" data-en="Token Name" data-zh="代币名称">Token Name</span>
+                            <span class="font-bold" data-en="AIF Token" data-zh="AIF代币">AIF Token</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-700">
+                            <span class="text-gray-300" data-en="Total Supply" data-zh="总供应量">Total Supply</span>
+                            <span class="font-bold">10,000,000,000 AIF</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-700">
+                            <span class="text-gray-300" data-en="Private Sale Price" data-zh="私募价格">Private Sale Price</span>
+                            <span class="font-bold text-gold">$0.05</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-700">
+                            <span class="text-gray-300" data-en="Public Sale Price" data-zh="公募价格">Public Sale Price</span>
+                            <span class="font-bold">$0.08</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-700">
+                            <span class="text-gray-300" data-en="2030 Target Price" data-zh="2030年目标价格">2030 Target Price</span>
+                            <span class="font-bold text-green-400">$0.55 - $2.21</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-gray-300" data-en="Potential ROI" data-zh="潜在投资回报">Potential ROI</span>
+                            <span class="font-bold text-gradient-gold">1,100% - 4,420%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass p-8 rounded-xl">
+                    <h3 class="text-3xl font-bold mb-6" data-en="Token Distribution" data-zh="代币分配">Token Distribution</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-gradient rounded mr-3"></div>
+                                <span data-en="Ecosystem Development (30%)" data-zh="生态系统发展 (30%)">Ecosystem Development (30%)</span>
+                            </div>
+                            <span class="font-bold">3B AIF</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-blue-500 rounded mr-3"></div>
+                                <span data-en="Team & Advisors (20%)" data-zh="团队与顾问 (20%)">Team & Advisors (20%)</span>
+                            </div>
+                            <span class="font-bold">2B AIF</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-purple-500 rounded mr-3"></div>
+                                <span data-en="Private Sale (15%)" data-zh="私募 (15%)">Private Sale (15%)</span>
+                            </div>
+                            <span class="font-bold">1.5B AIF</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-green-500 rounded mr-3"></div>
+                                <span data-en="Community Incentives (15%)" data-zh="社区激励 (15%)">Community Incentives (15%)</span>
+                            </div>
+                            <span class="font-bold">1.5B AIF</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-yellow-500 rounded mr-3"></div>
+                                <span data-en="Public Sale (10%)" data-zh="公募 (10%)">Public Sale (10%)</span>
+                            </div>
+                            <span class="font-bold">1B AIF</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-pink-500 rounded mr-3"></div>
+                                <span data-en="Strategic Partners (5%)" data-zh="战略合作伙伴 (5%)">Strategic Partners (5%)</span>
+                            </div>
+                            <span class="font-bold">500M AIF</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-gray-500 rounded mr-3"></div>
+                                <span data-en="Reserve Fund (5%)" data-zh="储备基金 (5%)">Reserve Fund (5%)</span>
+                            </div>
+                            <span class="font-bold">500M AIF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Deflationary Mechanism -->
+            <div class="glass p-8 rounded-xl mb-16">
+                <h3 class="text-3xl font-bold text-center mb-8" data-en="Deflationary Token Burns" data-zh="通缩代币销毁">Deflationary Token Burns</h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-red-400">2025</div>
+                        <div class="text-xl font-semibold">10M AIF</div>
+                        <div class="text-sm text-gray-400" data-en="Burned" data-zh="销毁">Burned</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-orange-400">2026</div>
+                        <div class="text-xl font-semibold">40M AIF</div>
+                        <div class="text-sm text-gray-400" data-en="Burned" data-zh="销毁">Burned</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-yellow-400">2027</div>
+                        <div class="text-xl font-semibold">100M AIF</div>
+                        <div class="text-sm text-gray-400" data-en="Burned" data-zh="销毁">Burned</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-green-400">2028</div>
+                        <div class="text-xl font-semibold">200M AIF</div>
+                        <div class="text-sm text-gray-400" data-en="Burned" data-zh="销毁">Burned</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-2xl font-bold text-accent">2030</div>
+                        <div class="text-xl font-semibold">400M AIF</div>
+                        <div class="text-sm text-gray-400" data-en="Burned" data-zh="销毁">Burned</div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <div class="text-2xl font-bold text-gradient-gold" data-en="Total 5-Year Burn: 1.05B AIF (10.5% of supply)" data-zh="5年总销毁：10.5亿AIF（供应量的10.5%）">
+                        Total 5-Year Burn: 1.05B AIF (10.5% of supply)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Revenue Projections -->
+            <div class="glass p-8 rounded-xl">
+                <h3 class="text-3xl font-bold text-center mb-8" data-en="Revenue Growth Projections" data-zh="收入增长预测">Revenue Growth Projections</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-center">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="py-4 px-2" data-en="Year" data-zh="年份">Year</th>
+                                <th class="py-4 px-2" data-en="Platform Revenue" data-zh="平台收入">Platform Revenue</th>
+                                <th class="py-4 px-2" data-en="Education Revenue" data-zh="教育收入">Education Revenue</th>
+                                <th class="py-4 px-2" data-en="Total Revenue" data-zh="总收入">Total Revenue</th>
+                                <th class="py-4 px-2" data-en="Token Value Impact" data-zh="代币价值影响">Token Value Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-4 px-2 font-bold">2025</td>
+                                <td class="py-4 px-2">$5.3M</td>
+                                <td class="py-4 px-2">$2.5M</td>
+                                <td class="py-4 px-2 font-bold text-green-400">$7.8M</td>
+                                <td class="py-4 px-2 text-accent">Base Growth</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-4 px-2 font-bold">2026</td>
+                                <td class="py-4 px-2">$28.5M</td>
+                                <td class="py-4 px-2">$9.0M</td>
+                                <td class="py-4 px-2 font-bold text-green-400">$37.5M</td>
+                                <td class="py-4 px-2 text-accent">4.8x Growth</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-4 px-2 font-bold">2027</td>
+                                <td class="py-4 px-2">$96.4M</td>
+                                <td class="py-4 px-2">$25.0M</td>
+                                <td class="py-4 px-2 font-bold text-green-400">$121.4M</td>
+                                <td class="py-4 px-2 text-accent">15.6x Growth</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-4 px-2 font-bold">2028</td>
+                                <td class="py-4 px-2">$247.4M</td>
+                                <td class="py-4 px-2">$48.0M</td>
+                                <td class="py-4 px-2 font-bold text-green-400">$295.4M</td>
+                                <td class="py-4 px-2 text-accent">37.9x Growth</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-2 font-bold">2030</td>
+                                <td class="py-4 px-2">$984.0M</td>
+                                <td class="py-4 px-2">$120.0M</td>
+                                <td class="py-4 px-2 font-bold text-gold">$1.104B</td>
+                                <td class="py-4 px-2 text-gradient-gold font-bold">141.5x Growth</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="section-padding bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold orbitron mb-6">
+                    <span data-en="CUTTING-EDGE" data-zh="前沿">CUTTING-EDGE</span><br>
+                    <span class="text-gradient" data-en="TECHNOLOGY" data-zh="技术">TECHNOLOGY</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto" data-en="Multi-chain blockchain infrastructure with advanced AI integration" data-zh="具有高级AI集成的多链区块链基础设施">
+                    Multi-chain blockchain infrastructure with advanced AI integration
+                </p>
+            </div>
+            
+            <!-- Tech Stack -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-primary">⚡</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Multi-Chain Architecture" data-zh="多链架构">Multi-Chain Architecture</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li data-en="• Ethereum (Main governance)" data-zh="• 以太坊（主要治理）">• Ethereum (Main governance)</li>
+                        <li data-en="• Polygon (Daily operations)" data-zh="• Polygon（日常运营）">• Polygon (Daily operations)</li>
+                        <li data-en="• BSC (Asian markets)" data-zh="• BSC（亚洲市场）">• BSC (Asian markets)</li>
+                        <li data-en="• Cross-chain bridges" data-zh="• 跨链桥">• Cross-chain bridges</li>
+                    </ul>
+                </div>
+                
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-accent">🤖</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="AI Integration" data-zh="AI集成">AI Integration</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li data-en="• GPT-4 for content generation" data-zh="• GPT-4内容生成">• GPT-4 for content generation</li>
+                        <li data-en="• Stable Diffusion for visuals" data-zh="• Stable Diffusion视觉">• Stable Diffusion for visuals</li>
+                        <li data-en="• Custom AI models" data-zh="• 定制AI模型">• Custom AI models</li>
+                        <li data-en="• Real-time processing" data-zh="• 实时处理">• Real-time processing</li>
+                    </ul>
+                </div>
+                
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-secondary">🔐</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Security Framework" data-zh="安全框架">Security Framework</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li data-en="• Multi-signature wallets" data-zh="• 多重签名钱包">• Multi-signature wallets</li>
+                        <li data-en="• Smart contract audits" data-zh="• 智能合约审计">• Smart contract audits</li>
+                        <li data-en="• Insurance coverage" data-zh="• 保险覆盖">• Insurance coverage</li>
+                        <li data-en="• Emergency mechanisms" data-zh="• 紧急机制">• Emergency mechanisms</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Smart Contract Features -->
+            <div class="glass p-8 rounded-xl mb-16">
+                <h3 class="text-3xl font-bold text-center mb-8" data-en="Smart Contract Capabilities" data-zh="智能合约功能">Smart Contract Capabilities</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 text-gold" data-en="FilmToken Factory" data-zh="FilmToken工厂">FilmToken Factory</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li data-en="• Automated token creation for each film project" data-zh="• 为每个电影项目自动创建代币">• Automated token creation for each film project</li>
+                            <li data-en="• Multi-round financing support" data-zh="• 多轮融资支持">• Multi-round financing support</li>
+                            <li data-en="• Revenue distribution automation" data-zh="• 收入分配自动化">• Revenue distribution automation</li>
+                            <li data-en="• Secondary market integration" data-zh="• 二级市场集成">• Secondary market integration</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 text-gold" data-en="Governance System" data-zh="治理系统">Governance System</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li data-en="• Weighted voting by AIF stake" data-zh="• 按AIF质押加权投票">• Weighted voting by AIF stake</li>
+                            <li data-en="• Proposal submission and voting" data-zh="• 提案提交和投票">• Proposal submission and voting</li>
+                            <li data-en="• Platform parameter adjustments" data-zh="• 平台参数调整">• Platform parameter adjustments</li>
+                            <li data-en="• Community-driven development" data-zh="• 社区驱动开发">• Community-driven development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="section-padding bg-dark-lighter">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold orbitron mb-6">
+                    <span data-en="STRATEGIC" data-zh="战略">STRATEGIC</span><br>
+                    <span class="text-gradient" data-en="ROADMAP" data-zh="路线图">ROADMAP</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto" data-en="From foundation to global ecosystem leadership" data-zh="从基础建设到全球生态系统领导地位">
+                    From foundation to global ecosystem leadership
+                </p>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient"></div>
+                
+                <!-- 2025 -->
+                <div class="relative flex items-center justify-center mb-16">
+                    <div class="glass p-8 rounded-xl max-w-lg mx-auto hover-scale">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient text-white px-4 py-2 rounded-full font-bold">
+                            2025
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 mt-4 text-gold" data-en="Foundation Year" data-zh="基础建设年">Foundation Year</h3>
+                        <ul class="text-gray-300 space-y-2">
+                            <li data-en="✅ Q1: Private Sale ($3M target)" data-zh="✅ Q1: 私募 (300万美元目标)">✅ Q1: Private Sale ($3M target)</li>
+                            <li data-en="📅 Q2: Platform Beta Launch" data-zh="📅 Q2: 平台测试版发布">📅 Q2: Platform Beta Launch</li>
+                            <li data-en="📅 Q3: Public Sale & Exchange Listing" data-zh="📅 Q3: 公募与交易所上币">📅 Q3: Public Sale & Exchange Listing</li>
+                            <li data-en="📅 Q4: First HK AI Film Festival" data-zh="📅 Q4: 首届香港AI电影节">📅 Q4: First HK AI Film Festival</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 2026 -->
+                <div class="relative flex items-center justify-center mb-16">
+                    <div class="glass p-8 rounded-xl max-w-lg mx-auto hover-scale">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient text-white px-4 py-2 rounded-full font-bold">
+                            2026
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 mt-4 text-gold" data-en="Expansion Year" data-zh="扩张年">Expansion Year</h3>
+                        <ul class="text-gray-300 space-y-2">
+                            <li data-en="🎯 Academy: 20 centers, 15K students" data-zh="🎯 学院: 20个中心，1.5万学生">🎯 Academy: 20 centers, 15K students</li>
+                            <li data-en="🎯 First FilmToken project funding" data-zh="🎯 首批FilmToken项目融资">🎯 First FilmToken project funding</li>
+                            <li data-en="🎯 Mobile app launch" data-zh="🎯 移动应用发布">🎯 Mobile app launch</li>
+                            <li data-en="🎯 European market entry (London)" data-zh="🎯 欧洲市场进入 (伦敦)">🎯 European market entry (London)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 2027 -->
+                <div class="relative flex items-center justify-center mb-16">
+                    <div class="glass p-8 rounded-xl max-w-lg mx-auto hover-scale">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient text-white px-4 py-2 rounded-full font-bold">
+                            2027
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 mt-4 text-gold" data-en="Market Leadership" data-zh="市场领导地位">Market Leadership</h3>
+                        <ul class="text-gray-300 space-y-2">
+                            <li data-en="🎯 100+ AI films produced" data-zh="🎯 制作100+部AI电影">🎯 100+ AI films produced</li>
+                            <li data-en="🎯 1M+ monthly active users" data-zh="🎯 100万+月活跃用户">🎯 1M+ monthly active users</li>
+                            <li data-en="🎯 $100M+ project funding facilitated" data-zh="🎯 促成1亿美元+项目资金">🎯 $100M+ project funding facilitated</li>
+                            <li data-en="🎯 50 global cooperation centers" data-zh="🎯 50个全球合作中心">🎯 50 global cooperation centers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 2030 -->
+                <div class="relative flex items-center justify-center">
+                    <div class="glass p-8 rounded-xl max-w-lg mx-auto hover-scale">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient text-white px-4 py-2 rounded-full font-bold">
+                            2030
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 mt-4 text-gold" data-en="Global Ecosystem" data-zh="全球生态系统">Global Ecosystem</h3>
+                        <ul class="text-gray-300 space-y-2">
+                            <li data-en="🎯 10M+ platform users" data-zh="🎯 1000万+平台用户">🎯 10M+ platform users</li>
+                            <li data-en="🎯 100+ cooperation centers worldwide" data-zh="🎯 全球100+合作中心">🎯 100+ cooperation centers worldwide</li>
+                            <li data-en="🎯 $1.1B+ annual revenue" data-zh="🎯 11亿美元+年收入">🎯 $1.1B+ annual revenue</li>
+                            <li data-en="🎯 Industry standard protocols" data-zh="🎯 行业标准协议">🎯 Industry standard protocols</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Highlights -->
+    <section class="section-padding bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold orbitron mb-6">
+                    <span data-en="INVESTMENT" data-zh="投资">INVESTMENT</span><br>
+                    <span class="text-gradient" data-en="HIGHLIGHTS" data-zh="亮点">HIGHLIGHTS</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto" data-en="Why AIF Token represents the opportunity of a lifetime" data-zh="为什么AIF代币代表千载难逢的机会">
+                    Why AIF Token represents the opportunity of a lifetime
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- First Mover Advantage -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-gold">🥇</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="First-Mover Advantage" data-zh="先发优势">First-Mover Advantage</h3>
+                    <p class="text-gray-300 mb-4" data-en="World's first comprehensive AI-native film ecosystem" data-zh="全球首个综合AI原生电影生态系统">World's first comprehensive AI-native film ecosystem</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• No direct competitors" data-zh="• 无直接竞争对手">• No direct competitors</li>
+                        <li data-en="• Early market capture" data-zh="• 早期市场捕获">• Early market capture</li>
+                        <li data-en="• Network effects" data-zh="• 网络效应">• Network effects</li>
+                    </ul>
+                </div>
+                
+                <!-- Massive TAM -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-accent">📈</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Massive TAM" data-zh="巨大市场">Massive TAM</h3>
+                    <p class="text-gray-300 mb-4" data-en="$370B+ AI content market by 2030" data-zh="到2030年3700亿美元+AI内容市场">$370B+ AI content market by 2030</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• 54.2% CAGR growth" data-zh="• 54.2%复合年增长率">• 54.2% CAGR growth</li>
+                        <li data-en="• Asia-Pacific leadership" data-zh="• 亚太领导地位">• Asia-Pacific leadership</li>
+                        <li data-en="• Multiple revenue streams" data-zh="• 多重收入流">• Multiple revenue streams</li>
+                    </ul>
+                </div>
+                
+                <!-- Deflationary Model -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-secondary">🔥</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Deflationary Model" data-zh="通缩模型">Deflationary Model</h3>
+                    <p class="text-gray-300 mb-4" data-en="10.5% token burn over 5 years" data-zh="5年内销毁10.5%代币">10.5% token burn over 5 years</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• Increasing scarcity" data-zh="• 增加稀缺性">• Increasing scarcity</li>
+                        <li data-en="• Revenue-driven burns" data-zh="• 收入驱动销毁">• Revenue-driven burns</li>
+                        <li data-en="• Value accumulation" data-zh="• 价值累积">• Value accumulation</li>
+                    </ul>
+                </div>
+                
+                <!-- Strong Team -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-primary">👥</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Strong Team" data-zh="强大团队">Strong Team</h3>
+                    <p class="text-gray-300 mb-4" data-en="Industry veterans with proven track record" data-zh="具有成功记录的行业资深人士">Industry veterans with proven track record</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• Entertainment industry experience" data-zh="• 娱乐行业经验">• Entertainment industry experience</li>
+                        <li data-en="• Blockchain expertise" data-zh="• 区块链专业知识">• Blockchain expertise</li>
+                        <li data-en="• AI technology background" data-zh="• AI技术背景">• AI technology background</li>
+                    </ul>
+                </div>
+                
+                <!-- Strategic Partnerships -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-green-400">🤝</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Strategic Partnerships" data-zh="战略合作伙伴">Strategic Partnerships</h3>
+                    <p class="text-gray-300 mb-4" data-en="Leading AI companies and film studios" data-zh="领先的AI公司和电影工作室">Leading AI companies and film studios</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• Technology integration" data-zh="• 技术集成">• Technology integration</li>
+                        <li data-en="• Distribution channels" data-zh="• 分发渠道">• Distribution channels</li>
+                        <li data-en="• Content partnerships" data-zh="• 内容合作伙伴">• Content partnerships</li>
+                    </ul>
+                </div>
+                
+                <!-- Hong Kong Hub -->
+                <div class="glass p-8 rounded-xl hover-scale">
+                    <div class="text-5xl mb-4 text-yellow-400">🏙️</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Hong Kong Hub" data-zh="香港中心">Hong Kong Hub</h3>
+                    <p class="text-gray-300 mb-4" data-en="Strategic location bridging East and West" data-zh="连接东西方的战略位置">Strategic location bridging East and West</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li data-en="• Favorable regulations" data-zh="• 有利法规">• Favorable regulations</li>
+                        <li data-en="• Financial hub status" data-zh="• 金融中心地位">• Financial hub status</li>
+                        <li data-en="• Global connectivity" data-zh="• 全球连通性">• Global connectivity</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- ROI Projection -->
+            <div class="glass p-8 rounded-xl text-center">
+                <h3 class="text-3xl font-bold mb-8" data-en="Projected Returns" data-zh="预期回报">Projected Returns</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <div class="text-4xl font-bold text-green-400 mb-2" data-en="Conservative" data-zh="保守">Conservative</div>
+                        <div class="text-6xl font-bold text-gradient-gold mb-2">1,100%</div>
+                        <div class="text-gray-400" data-en="$0.05 → $0.55" data-zh="$0.05 → $0.55">$0.05 → $0.55</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-yellow-400 mb-2" data-en="Moderate" data-zh="中等">Moderate</div>
+                        <div class="text-6xl font-bold text-gradient-gold mb-2">2,500%</div>
+                        <div class="text-gray-400" data-en="$0.05 → $1.25" data-zh="$0.05 → $1.25">$0.05 → $1.25</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-red-400 mb-2" data-en="Aggressive" data-zh="激进">Aggressive</div>
+                        <div class="text-6xl font-bold text-gradient-gold mb-2">4,420%</div>
+                        <div class="text-gray-400" data-en="$0.05 → $2.21" data-zh="$0.05 → $2.21">$0.05 → $2.21</div>
+                    </div>
+                </div>
+                <div class="mt-8 text-lg text-gray-300" data-en="*Based on 2030 revenue projections and comparable market valuations" data-zh="*基于2030年收入预测和可比市场估值">
+                    *Based on 2030 revenue projections and comparable market valuations
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Investment Section -->
+    <section id="contact" class="section-padding bg-gradient">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold orbitron mb-6 text-white">
+                <span data-en="SECURE YOUR" data-zh="确保您的">SECURE YOUR</span><br>
+                <span data-en="ALLOCATION TODAY" data-zh="今日配额">ALLOCATION TODAY</span>
+            </h2>
+            <p class="text-xl text-white opacity-90 mb-12 max-w-4xl mx-auto" data-en="Join the AI film revolution. Limited private sale spots available." data-zh="加入AI电影革命。私募名额有限。">
+                Join the AI film revolution. Limited private sale spots available.
+            </p>
+            
+            <!-- Investment Form/CTA -->
+            <div class="max-w-2xl mx-auto glass p-8 rounded-xl mb-12">
+                <h3 class="text-3xl font-bold mb-8 text-white" data-en="Private Sale Round 1" data-zh="首轮私募">Private Sale Round 1</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="text-left">
+                        <div class="text-lg font-bold text-gold mb-2" data-en="Token Price" data-zh="代币价格">Token Price</div>
+                        <div class="text-3xl font-bold text-white">$0.05</div>
+                        <div class="text-sm text-gray-300" data-en="60% discount from public sale" data-zh="较公募折扣60%">60% discount from public sale</div>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-lg font-bold text-gold mb-2" data-en="Target Raise" data-zh="筹资目标">Target Raise</div>
+                        <div class="text-3xl font-bold text-white">$3M USD</div>
+                        <div class="text-sm text-gray-300" data-en="Ends July 1, 2025" data-zh="2025年7月1日截止">Ends July 1, 2025</div>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-lg font-bold text-gold mb-2" data-en="Min Investment" data-zh="最小投资">Min Investment</div>
+                        <div class="text-3xl font-bold text-white">$25,000</div>
+                        <div class="text-sm text-gray-300" data-en="Accredited investors only" data-zh="仅限合格投资者">Accredited investors only</div>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-lg font-bold text-gold mb-2" data-en="Vesting" data-zh="解锁期">Vesting</div>
+                        <div class="text-3xl font-bold text-white">6 Months</div>
+                        <div class="text-sm text-gray-300" data-en="Cliff + 24 month linear" data-zh="锁定期+24个月线性">Cliff + 24 month linear</div>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="bg-dark-lighter p-6 rounded-xl mb-8">
+                    <h4 class="text-xl font-bold mb-4 text-white" data-en="Investment Inquiries" data-zh="投资咨询">Investment Inquiries</h4>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-accent mb-2">invest@aif.market</div>
+                        <div class="text-gray-300 mb-4" data-en="Institutional & Accredited Investors" data-zh="机构和合格投资者">Institutional & Accredited Investors</div>
+                        <div class="text-sm text-gray-400" data-en="Response within 24 hours | Due diligence materials available" data-zh="24小时内回复 | 尽职调查材料可获得">
+                            Response within 24 hours | Due diligence materials available
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Urgency Banner -->
+                <div class="countdown-timer p-4 rounded-xl mb-6">
+                    <div class="text-black font-bold text-lg" data-en="⚡ LIMITED TIME: Early Bird Bonus 20% Extra Tokens ⚡" data-zh="⚡ 限时：早鸟奖励额外20%代币 ⚡">
+                        ⚡ LIMITED TIME: Early Bird Bonus 20% Extra Tokens ⚡
+                    </div>
+                </div>
+                
+                <a href="mailto:invest@aif.market" class="bg-white text-black px-12 py-4 rounded-full text-xl font-bold hover:opacity-90 transition inline-block">
+                    <span data-en="📧 CONTACT INVESTMENT TEAM" data-zh="📧 联系投资团队">📧 CONTACT INVESTMENT TEAM</span>
+                </a>
+            </div>
+            
+            <!-- Social Proof -->
+            <div class="text-center">
+                <div class="text-lg text-white opacity-80 mb-4" data-en="Backed by leading investors in AI, blockchain, and entertainment" data-zh="获得AI、区块链和娱乐领域领先投资者支持">
+                    Backed by leading investors in AI, blockchain, and entertainment
+                </div>
+                <div class="flex justify-center space-x-8 opacity-60">
+                    <div class="text-4xl">🏦</div>
+                    <div class="text-4xl">🎬</div>
+                    <div class="text-4xl">⚡</div>
+                    <div class="text-4xl">🌏</div>
+                    <div class="text-4xl">💎</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-4xl font-bold orbitron text-gradient mb-6">AIF TOKEN</div>
+                    <p class="text-gray-400 mb-6 max-w-md" data-en="Building the future of AI-native entertainment through blockchain innovation and global collaboration." data-zh="通过区块链创新和全球合作构建AI原生娱乐的未来。">
+                        Building the future of AI-native entertainment through blockchain innovation and global collaboration.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-accent transition">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition">
+                            <i class="fab fa-telegram text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition">
+                            <i class="fab fa-discord text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition">
+                            <i class="fab fa-medium text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6" data-en="Platform" data-zh="平台">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#ecosystem" class="text-gray-400 hover:text-accent transition" data-en="Ecosystem" data-zh="生态系统">Ecosystem</a></li>
+                        <li><a href="#tokenomics" class="text-gray-400 hover:text-accent transition" data-en="Tokenomics" data-zh="代币经济">Tokenomics</a></li>
+                        <li><a href="#technology" class="text-gray-400 hover:text-accent transition" data-en="Technology" data-zh="技术">Technology</a></li>
+                        <li><a href="#roadmap" class="text-gray-400 hover:text-accent transition" data-en="Roadmap" data-zh="路线图">Roadmap</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6" data-en="Resources" data-zh="资源">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition" data-en="Whitepaper" data-zh="白皮书">Whitepaper</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition" data-en="Documentation" data-zh="文档">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition" data-en="FAQ" data-zh="常见问题">FAQ</a></li>
+                        <li><a href="mailto:invest@aif.market" class="text-gray-400 hover:text-accent transition" data-en="Contact" data-zh="联系我们">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-500 text-sm mb-4 md:mb-0">
+                    <span data-en="© 2025 HONG KONG AI INTERNATIONAL FILM FESTIVAL LIMITED. All rights reserved." data-zh="© 2025 香港AI国际电影节有限公司。保留所有权利。">
+                        © 2025 HONG KONG AI INTERNATIONAL FILM FESTIVAL LIMITED. All rights reserved.
+                    </span>
+                </div>
+                <div class="text-gray-500 text-sm" data-en="Investment opportunities for accredited investors only" data-zh="投资机会仅面向合格投资者">
+                    Investment opportunities for accredited investors only
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let currentLang = 'en';
+        
+        // Language Toggle
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            updateLanguage();
+            updateLangToggle();
+        }
+        
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            elements.forEach(element => {
+                element.textContent = element.getAttribute(`data-${currentLang}`);
+            });
+        }
+        
+        function updateLangToggle() {
+            const toggle = document.getElementById('langToggle');
+            toggle.textContent = currentLang === 'en' ? 'EN | 中文' : '中文 | EN';
+        }
+        
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('2025-07-01T23:59:59');
+            const now = new Date();
+            const difference = targetDate - now;
+            
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                const countdownElement = document.getElementById('countdown');
+                if (currentLang === 'en') {
+                    countdownElement.textContent = `${days}D ${hours}H ${minutes}M ${seconds}S`;
+                } else {
+                    countdownElement.textContent = `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+                }
+            }
+        }
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Sticky Navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.sticky-nav');
+            if (window.scrollY > 100) {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            } else {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+            }
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // Add animation delays to elements
+            const animatedElements = document.querySelectorAll('.hover-scale');
+            animatedElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.glass, .hover-scale');
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html> 
