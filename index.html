@@ -682,14 +682,36 @@
                 padding: 1.2rem;
             }
             
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 40px;
-                height: 40px;
-                z-index: 1001;
-            }
+        .mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            z-index: 1001;
+        }
+        
+        .mobile-lang-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-lang-toggle:hover {
+            background: rgba(0,255,157,0.2);
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .mobile-lang-toggle img {
+            border-radius: 2px;
+        }
             
             .hero-content .grid {
                 grid-template-columns: 1fr;
@@ -777,29 +799,37 @@
                 margin-top: 8px;
             }
             
-            .mobile-language-option {
+            .mobile-language-btn {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                padding: 8px 12px;
-                border-radius: 8px;
+                padding: 12px 16px;
+                border-radius: 12px;
                 background: rgba(255,255,255,0.05);
-                transition: all 0.2s ease;
+                border: 2px solid rgba(255,255,255,0.1);
+                transition: all 0.3s ease;
+                cursor: pointer;
+                color: white;
+                font-family: inherit;
             }
             
-            .mobile-language-option:hover {
-                background: rgba(0,255,157,0.1);
+            .mobile-language-btn:hover {
+                background: rgba(0,255,157,0.15);
+                border-color: var(--accent);
                 transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0,255,157,0.2);
             }
             
-            .mobile-language-option img {
-                width: 28px;
+            .mobile-language-btn img {
+                width: 32px;
                 height: auto;
-                margin-bottom: 5px;
+                margin-bottom: 8px;
+                border-radius: 4px;
             }
             
-            .mobile-language-option span {
-                font-size: 0.7rem;
+            .mobile-language-btn span {
+                font-size: 0.8rem;
+                font-weight: 500;
             }
             
             .phantom-steps {
@@ -958,6 +988,11 @@
                     Apply to Join
                 </button>
                 
+                <!-- 移動端語言切換按鈕 -->
+                <button class="md:hidden text-white mr-3 mobile-lang-toggle" onclick="toggleMobileLanguage()">
+                    <img src="https://flagcdn.com/w40/hk.png" alt="Language" class="w-6 h-4" id="mobile-current-flag">
+                </button>
+                
                 <!-- 移動端菜單按鈕 -->
                 <button class="md:hidden text-white mobile-menu-btn" onclick="toggleMobileMenu()">
                     <i class="fas fa-bars text-xl"></i>
@@ -998,19 +1033,19 @@
                 Apply to Join
             </button>
             
-            <!-- 移動端語言選擇器 -->
+            <!-- 移動端語言切換 -->
             <div class="mobile-menu-language">
-                <h4 class="lang-zh active">選擇語言</h4>
-                <h4 class="lang-en">Select Language</h4>
+                <h4 class="lang-zh active">語言選擇</h4>
+                <h4 class="lang-en">Language Selection</h4>
                 <div class="mobile-language-options">
-                    <div class="mobile-language-option" onclick="changeLanguage('zh')">
+                    <button class="mobile-language-btn" onclick="changeLanguage('zh')">
                         <img src="https://flagcdn.com/w40/hk.png" alt="繁體中文">
                         <span>繁體中文</span>
-                    </div>
-                    <div class="mobile-language-option" onclick="changeLanguage('en')">
+                    </button>
+                    <button class="mobile-language-btn" onclick="changeLanguage('en')">
                         <img src="https://flagcdn.com/w40/gb.png" alt="English">
                         <span>English</span>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -2697,7 +2732,11 @@
 
     <script>
         // 語言切換功能
+        let currentLanguage = 'zh';
+        
         function changeLanguage(lang) {
+            currentLanguage = lang;
+            
             // 切換所有語言元素
             const zhElements = document.querySelectorAll('.lang-zh');
             const enElements = document.querySelectorAll('.lang-en');
@@ -2705,17 +2744,41 @@
             if (lang === 'zh') {
                 zhElements.forEach(el => el.classList.add('active'));
                 enElements.forEach(el => el.classList.remove('active'));
-                document.getElementById('current-lang').textContent = '繁體中文';
-                document.getElementById('current-flag').src = 'https://flagcdn.com/w40/hk.png';
+                
+                // 更新桌面端語言選擇器
+                if (document.getElementById('current-lang')) {
+                    document.getElementById('current-lang').textContent = '繁體中文';
+                    document.getElementById('current-flag').src = 'https://flagcdn.com/w40/hk.png';
+                }
+                
+                // 更新移動端語言按鈕
+                if (document.getElementById('mobile-current-flag')) {
+                    document.getElementById('mobile-current-flag').src = 'https://flagcdn.com/w40/hk.png';
+                }
             } else {
                 zhElements.forEach(el => el.classList.remove('active'));
                 enElements.forEach(el => el.classList.add('active'));
-                document.getElementById('current-lang').textContent = 'English';
-                document.getElementById('current-flag').src = 'https://flagcdn.com/w40/gb.png';
+                
+                // 更新桌面端語言選擇器
+                if (document.getElementById('current-lang')) {
+                    document.getElementById('current-lang').textContent = 'English';
+                    document.getElementById('current-flag').src = 'https://flagcdn.com/w40/gb.png';
+                }
+                
+                // 更新移動端語言按鈕
+                if (document.getElementById('mobile-current-flag')) {
+                    document.getElementById('mobile-current-flag').src = 'https://flagcdn.com/w40/gb.png';
+                }
             }
             
             // 關閉移動端菜單
             closeMobileMenu();
+        }
+        
+        // 移動端語言切換功能
+        function toggleMobileLanguage() {
+            const newLang = currentLanguage === 'zh' ? 'en' : 'zh';
+            changeLanguage(newLang);
         }
         
         // 移動端菜單功能
