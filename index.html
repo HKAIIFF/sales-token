@@ -412,7 +412,6 @@
         }
         
         .mobile-menu {
-            display: none;
             position: fixed;
             top: 0;
             right: 0;
@@ -429,6 +428,7 @@
         }
         
         .mobile-menu.open {
+            display: block;
             transform: translateX(0);
         }
         
@@ -1011,32 +1011,32 @@
         </div>
         
         <div class="mobile-menu-content">
-            <a href="#ecosystem" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh active" onclick="closeMobileMenu()">生態系統</a>
-            <a href="#ecosystem" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en" onclick="closeMobileMenu()">Ecosystem</a>
-            <a href="#about-aif" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh active" onclick="closeMobileMenu()">關於AIF</a>
-            <a href="#about-aif" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en" onclick="closeMobileMenu()">About AIF</a>
-            <a href="#phantom-wallet" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh active" onclick="closeMobileMenu()">Phantom錢包</a>
-            <a href="#phantom-wallet" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en" onclick="closeMobileMenu()">Phantom Wallet</a>
-            <a href="#tokenomics" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh active" onclick="closeMobileMenu()">代幣經濟</a>
-            <a href="#tokenomics" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en" onclick="closeMobileMenu()">Tokenomics</a>
-            <a href="#invitation" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh active" onclick="closeMobileMenu()">邀請制釋放</a>
-            <a href="#invitation" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en" onclick="closeMobileMenu()">Invitation Release</a>
-            <a href="#roadmap" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh active" onclick="closeMobileMenu()">路線圖</a>
-            <a href="#roadmap" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en" onclick="closeMobileMenu()">Roadmap</a>
-            <a href="#whitepaper" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh active" onclick="closeMobileMenu()">白皮書</a>
-            <a href="#whitepaper" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en" onclick="closeMobileMenu()">Whitepaper</a>
+            <a href="#ecosystem" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh" onclick="closeMobileMenu()">生態系統</a>
+            <a href="#ecosystem" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en active" onclick="closeMobileMenu()">Ecosystem</a>
+            <a href="#about-aif" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh" onclick="closeMobileMenu()">關於AIF</a>
+            <a href="#about-aif" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en active" onclick="closeMobileMenu()">About AIF</a>
+            <a href="#phantom-wallet" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh" onclick="closeMobileMenu()">Phantom錢包</a>
+            <a href="#phantom-wallet" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en active" onclick="closeMobileMenu()">Phantom Wallet</a>
+            <a href="#tokenomics" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh" onclick="closeMobileMenu()">代幣經濟</a>
+            <a href="#tokenomics" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en active" onclick="closeMobileMenu()">Tokenomics</a>
+            <a href="#invitation" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh" onclick="closeMobileMenu()">邀請制釋放</a>
+            <a href="#invitation" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en active" onclick="closeMobileMenu()">Invitation Release</a>
+            <a href="#roadmap" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh" onclick="closeMobileMenu()">路線圖</a>
+            <a href="#roadmap" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en active" onclick="closeMobileMenu()">Roadmap</a>
+            <a href="#whitepaper" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-zh" onclick="closeMobileMenu()">白皮書</a>
+            <a href="#whitepaper" class="block py-3 px-4 hover:bg-gray-800 rounded-lg transition lang-en active" onclick="closeMobileMenu()">Whitepaper</a>
             
-            <button class="btn-primary w-full py-3 rounded-lg font-medium text-center mt-5 lang-zh active">
+            <button class="btn-primary w-full py-3 rounded-lg font-medium text-center mt-5 lang-zh">
                 申請參與
             </button>
-            <button class="btn-primary w-full py-3 rounded-lg font-medium text-center mt-5 lang-en">
+            <button class="btn-primary w-full py-3 rounded-lg font-medium text-center mt-5 lang-en active">
                 Apply to Join
             </button>
             
             <!-- 移動端語言切換 -->
             <div class="mobile-menu-language">
-                <h4 class="lang-zh active">語言選擇</h4>
-                <h4 class="lang-en">Language Selection</h4>
+                <h4 class="lang-zh">語言選擇</h4>
+                <h4 class="lang-en active">Language Selection</h4>
                 <div class="mobile-language-options">
                     <button class="mobile-language-btn" onclick="changeLanguage('zh')">
                         <img src="https://flagcdn.com/w40/hk.png" alt="繁體中文">
@@ -2843,9 +2843,9 @@
             });
         });
         
-        // 初始化 - 設置默認語言為繁體中文
+        // 初始化 - 設置默認語言為英文
         document.addEventListener('DOMContentLoaded', function() {
-            changeLanguage('zh');
+            changeLanguage('en');
             
             // 初始化動畫
             const observerOptions = {
