@@ -985,6 +985,20 @@
                 <a href="#whitepaper" class="hover:text-blue-400 transition lang-en active">Whitepaper</a>
             </div>
             <div class="flex items-center space-x-4">
+                <!-- 購買AIF按鈕 - 桌面端 -->
+                <a href="https://wise.com/pay/business/uj6hyy?currency=USD&amount=518.18&description=AIF-USD" target="_blank" class="hidden md:inline-block btn-primary px-4 py-2 rounded-lg font-medium text-sm">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span class="lang-zh">購買AIF</span>
+                    <span class="lang-en active">Buy AIF</span>
+                </a>
+                
+                <!-- 購買AIF按鈕 - 移動端 -->
+                <a href="https://wise.com/pay/business/uj6hyy?currency=USD&amount=518.18&description=AIF-USD" target="_blank" class="md:hidden btn-primary px-3 py-2 rounded-lg font-medium text-xs flex items-center">
+                    <i class="fas fa-shopping-cart mr-1"></i>
+                    <span class="lang-zh">購買</span>
+                    <span class="lang-en active">Buy</span>
+                </a>
+                
                 <!-- 語言選擇器 -->
                 <div class="language-selector hidden md:block">
                     <div class="flex items-center cursor-pointer">
@@ -2316,18 +2330,80 @@
                     <div class="relative">
                         <div class="absolute top-0 left-0 w-12 h-12 bg-gradient-bg rounded-full flex items-center justify-center font-bold text-xl">1</div>
                         <div class="ml-16 pt-2">
-                            <h4 class="text-xl font-bold mb-3 text-accent lang-zh">获取创世邀请码</h4>
-                            <h4 class="text-xl font-bold mb-3 text-accent lang-en active">Get Genesis Invitation Code</h4>
-                            <div class="space-y-2 text-gray-300">
-                                <p class="lang-zh">联系官网指定创世邀请人</p>
-                                <p class="lang-en active">Contact designated Genesis inviter on official website</p>
-                                <div class="accent-bg p-3 rounded-lg mt-3">
-                                    <p class="text-sm font-bold lang-zh">📧 邮件发送至:</p>
-                                    <p class="text-sm font-bold lang-en active">📧 Email to:</p>
-                                    <p class="text-accent font-mono">Genesis@aif.market</p>
+                            <h4 class="text-xl font-bold mb-3 text-accent lang-zh">支付订单</h4>
+                            <h4 class="text-xl font-bold mb-3 text-accent lang-en active">Payment Order</h4>
+                            <div class="space-y-3 text-gray-300">
+                                <p class="text-sm lang-zh">选择您的支付币种，点击按钮完成支付：</p>
+                                <p class="text-sm lang-en active">Select your payment currency and click the button to complete payment:</p>
+                                
+                                <!-- 支付方式提示 -->
+                                <div class="p-4 bg-gradient-to-r from-purple-900 to-blue-900 bg-opacity-40 border border-accent rounded-lg mb-4">
+                                    <h5 class="font-bold text-accent mb-2 lang-zh">💳 接受 MASTERCARD、VISA 和 APPLE PAY</h5>
+                                    <h5 class="font-bold text-accent mb-2 lang-en active">💳 Accept MASTERCARD, VISA and APPLE PAY</h5>
+                                    <p class="text-xs text-gray-300 mb-3 lang-zh">在线收款。手续费低，免费注册，不冻结资金。这是运作方式</p>
+                                    <p class="text-xs text-gray-300 mb-3 lang-en active">Online payments. Low fees, free registration, no frozen funds. This is how it works</p>
+                                    
+                                    <div class="mt-3 pt-3 border-t border-gray-600">
+                                        <p class="text-xs font-bold text-yellow-400 mb-2 lang-zh">手续费一目了然，基于所用银行卡：</p>
+                                        <p class="text-xs font-bold text-yellow-400 mb-2 lang-en active">Transaction fees at a glance, based on card used:</p>
+                                        <div class="space-y-2 text-xs">
+                                            <div class="flex justify-between items-center">
+                                                <span class="lang-zh">国内卡</span>
+                                                <span class="lang-en active">Domestic Card</span>
+                                                <span class="text-accent font-bold">2.78% + 1.98 HKD</span>
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="lang-zh">境外卡</span>
+                                                <span class="lang-en active">International Card</span>
+                                                <span class="text-accent font-bold">3.58% + 1.98 HKD</span>
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="lang-zh">商务卡</span>
+                                                <span class="lang-en active">Business Card</span>
+                                                <span class="text-accent font-bold">3.58% + 1.98 HKD</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p class="text-sm text-gray-400 lang-zh">验证邀请人身份,获取创世邀请码</p>
-                                <p class="text-sm text-gray-400 lang-en active">Verify inviter identity and obtain Genesis invitation code</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <!-- 美元支付 -->
+                                    <a href="https://wise.com/pay/business/uj6hyy?currency=USD&amount=518.18&description=AIF-USD" target="_blank" class="btn-primary px-4 py-3 rounded-lg text-center font-medium hover:shadow-lg transition-all">
+                                        <i class="fas fa-dollar-sign mr-2"></i>
+                                        <span class="lang-zh">美元支付 ($518.18)</span>
+                                        <span class="lang-en active">USD Payment ($518.18)</span>
+                                    </a>
+                                    
+                                    <!-- 港元支付 -->
+                                    <a href="https://wise.com/pay/business/uj6hyy?currency=HKD&amount=4026&description=AIF-HKD" target="_blank" class="btn-primary px-4 py-3 rounded-lg text-center font-medium hover:shadow-lg transition-all">
+                                        <i class="fas fa-dollar-sign mr-2"></i>
+                                        <span class="lang-zh">港元支付 (HK$4,026)</span>
+                                        <span class="lang-en active">HKD Payment (HK$4,026)</span>
+                                    </a>
+                                    
+                                    <!-- 人民币支付 -->
+                                    <a href="https://wise.com/pay/business/uj6hyy?currency=CNY&amount=3690&description=AIF-CNY" target="_blank" class="btn-primary px-4 py-3 rounded-lg text-center font-medium hover:shadow-lg transition-all">
+                                        <i class="fas fa-yen-sign mr-2"></i>
+                                        <span class="lang-zh">人民币支付 (¥3,690)</span>
+                                        <span class="lang-en active">CNY Payment (¥3,690)</span>
+                                    </a>
+                                    
+                                    <!-- 日元支付 -->
+                                    <a href="https://wise.com/pay/business/uj6hyy?currency=JPY&amount=79214&description=AIF-JPY" target="_blank" class="btn-primary px-4 py-3 rounded-lg text-center font-medium hover:shadow-lg transition-all">
+                                        <i class="fas fa-yen-sign mr-2"></i>
+                                        <span class="lang-zh">日元支付 (¥79,214)</span>
+                                        <span class="lang-en active">JPY Payment (¥79,214)</span>
+                                    </a>
+                                </div>
+                                
+                                <div class="mt-3 p-3 bg-blue-900 bg-opacity-30 border border-blue-500 rounded-lg">
+                                    <p class="text-xs text-gray-300 lang-zh">
+                                        💡 点击支付按钮后，您将跳转到Wise安全支付页面完成支付
+                                    </p>
+                                    <p class="text-xs text-gray-300 lang-en active">
+                                        💡 After clicking the payment button, you will be redirected to Wise secure payment page
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2336,37 +2412,21 @@
                     <div class="relative">
                         <div class="absolute top-0 left-0 w-12 h-12 bg-gradient-bg rounded-full flex items-center justify-center font-bold text-xl">2</div>
                         <div class="ml-16 pt-2">
-                            <h4 class="text-xl font-bold mb-3 text-accent lang-zh">提交钱包地址并支付</h4>
-                            <h4 class="text-xl font-bold mb-3 text-accent lang-en active">Submit Wallet & Payment</h4>
+                            <h4 class="text-xl font-bold mb-3 text-accent lang-zh">发送凭证及钱包地址</h4>
+                            <h4 class="text-xl font-bold mb-3 text-accent lang-en active">Send Proof & Wallet Address</h4>
                             <div class="space-y-2 text-gray-300">
-                                <p class="lang-zh">发送邮件至:</p>
-                                <p class="lang-en active">Send email to:</p>
+                                <p class="text-sm lang-zh">将支付凭证和接收AIF代币的钱包地址发送至：</p>
+                                <p class="text-sm lang-en active">Send payment proof and AIF token receiving wallet address to:</p>
                                 <div class="accent-bg p-3 rounded-lg">
-                                    <p class="text-accent font-mono">aif@aif.market</p>
+                                    <p class="text-sm font-bold mb-1 lang-zh">📧 邮件发送至:</p>
+                                    <p class="text-sm font-bold mb-1 lang-en active">📧 Email to:</p>
+                                    <p class="text-accent font-mono text-lg">Genesis@aif.market</p>
                                 </div>
-                                <p class="text-sm lang-zh">提供以下信息:</p>
-                                <p class="text-sm lang-en active">Provide the following:</p>
-                                <ul class="text-sm space-y-1 ml-4 lang-zh">
-                                    <li>• Solana钱包地址</li>
-                                    <li>• 获取支付账号及序列号</li>
-                                </ul>
-                                <ul class="text-sm space-y-1 ml-4 lang-en active">
-                                    <li>• Solana wallet address</li>
-                                    <li>• Get payment account & serial number</li>
-                                </ul>
-                                <div class="mt-3 p-3 bg-blue-900 bg-opacity-30 border border-blue-500 rounded-lg">
-                                    <p class="text-sm font-bold mb-2 lang-zh">支付方式(任选其一):</p>
-                                    <p class="text-sm font-bold mb-2 lang-en active">Payment Methods (choose one):</p>
-                                    <ul class="text-xs space-y-1 lang-zh">
-                                        <li>✓ 向官方指定金库钱包支付 USDT/USDC</li>
-                                        <li>✓ 向账号 xxxxx 转入美金</li>
-                                        <li>✓ 向账号 xxx 转入法币</li>
-                                    </ul>
-                                    <ul class="text-xs space-y-1 lang-en active">
-                                        <li>✓ Pay USDT/USDC to official treasury wallet</li>
-                                        <li>✓ Transfer USD to account xxxxx</li>
-                                        <li>✓ Transfer fiat currency to account xxx</li>
-                                    </ul>
+                                <div class="mt-3 p-3 bg-yellow-900 bg-opacity-30 border border-yellow-500 rounded-lg">
+                                    <p class="text-xs font-bold text-yellow-400 mb-1 lang-zh">⚠️ 重要提示：</p>
+                                    <p class="text-xs font-bold text-yellow-400 mb-1 lang-en active">⚠️ Important Note:</p>
+                                    <p class="text-xs lang-zh">钱包地址必须为 <strong class="text-accent">Solana地址</strong></p>
+                                    <p class="text-xs lang-en active">Wallet address must be a <strong class="text-accent">Solana address</strong></p>
                                 </div>
                             </div>
                         </div>
@@ -2379,13 +2439,13 @@
                             <h4 class="text-xl font-bold mb-3 text-accent lang-zh">接收AIF代币</h4>
                             <h4 class="text-xl font-bold mb-3 text-accent lang-en active">Receive AIF Tokens</h4>
                             <div class="space-y-2 text-gray-300">
-                                <p class="lang-zh">支付信息验证后:</p>
-                                <p class="lang-en active">After payment verification:</p>
+                                <p class="text-sm lang-zh">邮件信息验证后：</p>
+                                <p class="text-sm lang-en active">After email verification:</p>
                                 <div class="accent-bg p-3 rounded-lg">
-                                    <p class="text-lg font-bold text-accent lang-zh">⏱️ 10分钟内到账</p>
-                                    <p class="text-lg font-bold text-accent lang-en active">⏱️ Receive within 10 minutes</p>
+                                    <p class="text-lg font-bold text-accent lang-zh">⏱️ 10-30分钟左右AIF代币发送至用户钱包</p>
+                                    <p class="text-lg font-bold text-accent lang-en active">⏱️ AIF tokens sent to user wallet within 10-30 minutes</p>
                                     <p class="text-xs text-gray-400 lang-zh">(跟随Solana网络情况略有浮动)</p>
-                                    <p class="text-xs text-gray-400 lang-en active">(May vary with Solana network conditions)</p>
+                                    <p class="text-xs text-gray-400 lang-en active">(May vary slightly with Solana network conditions)</p>
                                 </div>
                                 <div class="mt-3 p-3 bg-purple-900 bg-opacity-30 border border-purple-500 rounded-lg">
                                     <p class="text-sm font-bold mb-2 lang-zh">📊 追踪进度:</p>
